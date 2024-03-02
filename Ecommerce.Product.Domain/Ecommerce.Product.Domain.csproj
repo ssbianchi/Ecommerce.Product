@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entity\Readonly\" />
+    <Folder Include="Entity\Readonly\Dapper\ProductInventory\" />
+    <Folder Include="Entity\Readonly\Dapper\ProductType\" />
   </ItemGroup>
 
   <ItemGroup>

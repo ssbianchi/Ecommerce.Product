@@ -1,8 +1,10 @@
 ﻿using Ecommerce.Product.Domain.Entity.Product.Repository;
 using Ecommerce.Product.Domain.Entity.ProductInventory.Repository;
 using Ecommerce.Product.Domain.Entity.ProductType.Repository;
+using Ecommerce.Product.Domain.Entity.Readonly.Repository;
 using Ecommerce.Product.Repository.Context;
 using Ecommerce.Product.Repository.Repository;
+using Ecommerce.Product.Repository.Repository.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,12 +21,12 @@ namespace Ecommerce.Product.Repository
             });
 
             //Use for Dapper
-            //services.Configure<ConnectionStringOptions>(c =>
-            //{
-            //    c.ConnectionString = connectionString;
-            //});
+            services.Configure<ConnectionStringOptions>(c =>
+            {
+                c.ConnectionString = connectionString;
+            });
 
-            //services.AddScoped<IReadonlyRepository, ReadonlyRepository>();
+            services.AddScoped<IReadonlyRepository, ReadonlyRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
             services.AddScoped<IProductInvestoryRepository, ProductInventoryRepository>();
