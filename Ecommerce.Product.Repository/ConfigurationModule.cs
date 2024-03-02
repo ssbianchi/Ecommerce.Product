@@ -1,5 +1,4 @@
 ﻿using Ecommerce.Product.Domain.Entity.Product.Repository;
-using Ecommerce.Product.Domain.Entity.ProductInventory.Repository;
 using Ecommerce.Product.Domain.Entity.ProductType.Repository;
 using Ecommerce.Product.Domain.Entity.Readonly.Repository;
 using Ecommerce.Product.Repository.Context;
@@ -29,8 +28,6 @@ namespace Ecommerce.Product.Repository
             services.AddScoped<IReadonlyRepository, ReadonlyRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-            services.AddScoped<IProductInvestoryRepository, ProductInventoryRepository>();
-
         }
 
     }

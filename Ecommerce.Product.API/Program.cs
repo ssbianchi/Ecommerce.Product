@@ -51,8 +51,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
         Version = "v1",
-        Title = "Ecommerce User API",
-        Description = "An ASP.NET Core Web API to acess diverse services of the Ecommerce User.",
+        Title = "Ecommerce Product API",
+        Description = "An ASP.NET Core Web API to acess diverse services of the Ecommerce Product.",
         Contact = new OpenApiContact { Name = "Ecommerce", Url = new Uri("https://www.ecommerce.com"), Email = "ecommerce@ecommerce.com" },
     });
 });

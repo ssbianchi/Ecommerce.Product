@@ -11,10 +11,10 @@ namespace Ecommerce.Product.Repository.Mapping.Product
             builder.HasKey(e => e.Id);
             builder.Property(x => x.Id).IsRequired().HasColumnName("Id");
             builder.Property(x => x.Name).IsRequired().HasColumnName("Name");
-            builder.Property(x => x.Desc).IsRequired().HasColumnName("Desc");
+            builder.Property(x => x.Desc).IsRequired().HasColumnName("Descricao");
             builder.Property(x => x.ProductTypeId).IsRequired().HasColumnName("ProductTypeId");
-            builder.Property(x => x.ProductInventoryId).IsRequired().HasColumnName("ProductInventoryId");
             builder.Property(x => x.Price).IsRequired().HasColumnName("Price");
+            builder.Property(x => x.Qtd).IsRequired().HasColumnName("Qtd");
         }
     }
 }

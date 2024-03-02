@@ -7,7 +7,7 @@ namespace Ecommerce.Product.Domain.Entity.Product
         public string Name { get; set; }
         public string Desc { get; set; }
         public int ProductTypeId { get; set; }
-        public int ProductInventoryId { get; set; }
         public double Price { get; set; }
+        public int Qtd { get; set; }
     }
 }
