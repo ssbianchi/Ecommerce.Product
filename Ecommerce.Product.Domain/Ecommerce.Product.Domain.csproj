@@ -10,4 +10,8 @@
     <Folder Include="Entity\Readonly\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.Product.CrossCutting\Ecommerce.Product.CrossCutting.csproj" />
+  </ItemGroup>
+
 </Project>

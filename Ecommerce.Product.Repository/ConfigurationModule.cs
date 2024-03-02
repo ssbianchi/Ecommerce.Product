@@ -1,9 +1,10 @@
-﻿using Ecommerce.Product.Repository.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ecommerce.Product.Domain.Entity.Product.Repository;
+using Ecommerce.Product.Domain.Entity.ProductInventory.Repository;
+using Ecommerce.Product.Domain.Entity.ProductType.Repository;
+using Ecommerce.Product.Repository.Context;
+using Ecommerce.Product.Repository.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Ecommerce.Product.Repository
 {
@@ -11,7 +12,7 @@ namespace Ecommerce.Product.Repository
     {
         public static void RegisterRepository(this IServiceCollection services, string connectionString)
         {
-            services.AddDbContext<EcommerceContext>(c =>
+            services.AddDbContext<EcommerceProductContext>(c =>
             {
                 connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=Ecommerce_Product;Trusted_Connection=True;";
                 c.UseSqlServer(connectionString);
@@ -26,7 +27,7 @@ namespace Ecommerce.Product.Repository
             //services.AddScoped<IReadonlyRepository, ReadonlyRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-            services.AddScoped<IProductInventoryRepository, ProductInventoryRepository>();
+            services.AddScoped<IProductInvestoryRepository, ProductInventoryRepository>();
 
         }
 

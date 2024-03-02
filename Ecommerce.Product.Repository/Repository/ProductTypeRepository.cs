@@ -1,4 +1,6 @@
-﻿using Ecommerce.Product.Repository.Context;
+﻿using Ecommerce.Product.Domain.Entity.ProductType;
+using Ecommerce.Product.Domain.Entity.ProductType.Repository;
+using Ecommerce.Product.Repository.Context;
 
 namespace Ecommerce.Product.Repository.Repository
 {

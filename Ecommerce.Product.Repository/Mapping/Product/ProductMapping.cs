@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Ecommerce.Product.Repository.Mapping.Product
 {
-    public class ProductMapping : IEntityTypeConfiguration<Product>
+    public class ProductMapping : IEntityTypeConfiguration<Ecommerce.Product.Domain.Entity.Product.Product>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Ecommerce.Product.Domain.Entity.Product.Product> builder)
         {
             builder.ToTable("Products");
             builder.HasKey(e => e.Id);

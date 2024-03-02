@@ -1,13 +1,9 @@
-﻿using Ecommerce.Product.Repository.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ecommerce.Product.Domain.Entity.Product.Repository;
+using Ecommerce.Product.Repository.Context;
 
 namespace Ecommerce.Product.Repository.Repository
 {
-    public class ProductRepository : UnitOfWork<Product>, IProductRepository
+    public class ProductRepository : UnitOfWork<Ecommerce.Product.Domain.Entity.Product.Product>, IProductRepository
     {
         public ProductRepository(EcommerceProductContext context) : base(context)
         {

@@ -1,10 +1,11 @@
-﻿using Ecommerce.Product.Repository.Context;
+﻿using Ecommerce.Product.Domain.Entity.ProductInventory;
+using Ecommerce.Product.Repository.Context;
 
 namespace Ecommerce.Product.Repository.Repository
 {
-    public class ProductInventoryRepository : UnitOfWork<ProductInventory>, IProductInventoryRepository
+    public class ProductInventoryRepository : UnitOfWork<ProductInventory>, Ecommerce.Product.Domain.Entity.ProductInventory.Repository.IProductInvestoryRepository
     {
-        public ProductRepository(EcommerceProductContext context) : base(context)
+        public ProductInventoryRepository(EcommerceProductContext context) : base(context)
         {
         }
     }
