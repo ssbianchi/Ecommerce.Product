@@ -5,7 +5,7 @@ namespace Ecommerce.Product.Domain.Entity.Readonly.Repository
     public interface IReadonlyRepository
     {
         #region User
-        Task<IEnumerable<DapperProduct>> GetAllProducts();
+        Task<IEnumerable<DapperProductAllInfo>> GetAllProductsInfo();
         #endregion
     }
 }

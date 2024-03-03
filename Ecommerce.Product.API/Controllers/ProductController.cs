@@ -7,7 +7,7 @@ namespace Ecommerce.Product.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
         private readonly ILogger _logger;
         private readonly IProductService _productService;
@@ -27,28 +27,27 @@ namespace Ecommerce.Product.API.Controllers
             return Ok(result);
         }
 
-        //[HttpGet("GetAllProducts")]
-        //public async Task<IActionResult> GetAllProducts([FromQuery] string responseContentType = "application/x-protobuf")
-        //{
-        //    var result = await _productService.GetAllProducts();
-        //    if (result == null)
-        //        return NotFound();
+        [HttpGet("GetAllProductsInfo")]
+        public async Task<IActionResult> GetAllProductsInfo()
+        {
+            var result = await _productService.GetAllProductsInfo();
+            if (result == null)
+                return NotFound();
 
-        //    //return Ok(result);
-        //    if ("application/x-protobuf".Equals(responseContentType))
-        //    {
-        //        var protobufResult = ConvertToProtobufObject(result);
-        //        return ProtobufFile(protobufResult);
-        //    }
-        //    else if ("application/json".Equals(responseContentType)) // any other is json
-        //    {
-        //        return Ok(result);
-        //    }
-        //    else
-        //    {
-        //        throw new BusinessException($"Unkown responseContentType='{responseContentType}'. Supported types are application/x-protobuf, application/json.");
-        //    }
-        //}
+            return Ok(result);
+        }
+
+        [HttpPut("UpdateQtdProduct")]
+        public async Task<IActionResult> UpdateQtdProduct(int productId, int qtdProduct)
+        {
+            _logger.LogInformation("Alterando quantidade do produto");
+            var result = await _productService.UpdateQtdProduct(productId, qtdProduct);
+
+            if (result == null)
+                return NotFound();
+
+            return Created($"/{result.Id}", result);
+        }
 
         [HttpPost("SaveProduct")]
         public async Task<IActionResult> SaveProduct([FromBody] ProductDto ProductDto)

@@ -14,17 +14,19 @@ namespace Ecommerce.Product.Repository.Repository
         }
 
         #region User
-        public async Task<IEnumerable<DapperProduct>> GetAllProducts()
+        public async Task<IEnumerable<DapperProductAllInfo>> GetAllProductsInfo()
         {
             var sql = @"
-Select Id
-     , Nome
-     , Login
-     , Password
-     , Email
-  From Products";
+Select P.Id
+	 , P.Name
+	 , P.Descricao
+	 , PT.Name      As ProductTypeName
+	 , P.Qtd
+	 , P.Price
+  from Products		P
+  Join ProductTypes	PT On P.ProductTypeId = PT.Id";
 
-            var result = await QueryAsync<DapperProduct>(sql);
+            var result = await QueryAsync<DapperProductAllInfo>(sql);
             return result;
         }
         #endregion

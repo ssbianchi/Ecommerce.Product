@@ -23,10 +23,38 @@ namespace Ecommerce.Product.Application.Product
             var result = await _productRepository.GetOneByCriteria(a => a.Id == ProductId);
             return _mapper.Map<ProductDto>(result);
         }
-        public async Task<List<ProductDto>> GetAllProducts()
+        public async Task<List<ProductAllInfoDto>> GetAllProductsInfo()
         {
-            var result = await _readonlyRepository.GetAllProducts();
-            return _mapper.Map<List<ProductDto>>(result);
+            var result = await _readonlyRepository.GetAllProductsInfo();
+            return _mapper.Map<List<ProductAllInfoDto>>(result);
+        }
+        public async Task<ProductDto> UpdateQtdProduct(int productId, int qtdProduct)
+        {
+            using (var transaction = await _productRepository.CreateTransaction())
+            {
+                try
+                {
+                    var product = await _productRepository.GetOneByCriteria(a => a.Id == productId);
+
+                    if (product == null)
+                        throw new System.Exception($"Produto não encontrado. Favor verificar!");
+
+                    product.Qtd = qtdProduct;
+
+                    var productDto = _mapper.Map<ProductDto>(product);
+
+                    var result = await SaveUpdateDeleteDto(productDto, _productRepository);
+
+                    await transaction.CommitAsync();
+
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
         }
         public async Task<ProductDto> SaveProduct(ProductDto ProductDto)
         {
