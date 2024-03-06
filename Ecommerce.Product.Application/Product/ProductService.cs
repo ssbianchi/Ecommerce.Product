@@ -39,7 +39,7 @@ namespace Ecommerce.Product.Application.Product
                     if (product == null)
                         throw new System.Exception($"Produto não encontrado. Favor verificar!");
 
-                    product.Qtd = qtdProduct;
+                    product.Qtd -= qtdProduct;
 
                     var productDto = _mapper.Map<ProductDto>(product);
 

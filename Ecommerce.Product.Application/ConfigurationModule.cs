@@ -10,6 +10,7 @@ namespace Ecommerce.Product.Application
             service.AddAutoMapper(typeof(ConfigurationModule).Assembly);
 
             service.AddScoped<IProductService, ProductService>();
+            //service.AddScoped<IRabbitRequestService, RabbitRequestService>();
         }
     }
 }

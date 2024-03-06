@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.RegisterRepository(builderConfig["EcommerceProductDatabase"]);
 builder.Services.RegisterApplication();
 builder.Services.RegisterCrossCutting(builderConfig);
-builder.Services.AddApplicationInsightsTelemetry();
+//builder.Services.AddApplicationInsightsTelemetry();
 
 var app = builder.Build();
 

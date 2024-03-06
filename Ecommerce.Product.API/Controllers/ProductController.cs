@@ -37,7 +37,7 @@ namespace Ecommerce.Product.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut("UpdateQtdProduct")]
+        [HttpPost("UpdateQtdProduct")]
         public async Task<IActionResult> UpdateQtdProduct(int productId, int qtdProduct)
         {
             _logger.LogInformation("Alterando quantidade do produto");
